@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="zh-HK"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;茶餐廳點餐遊戲&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #fff8e7;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>h1 {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.game-container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>max-width: 1000px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: auto;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.food-area, .cart-area {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>flex: 1;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 6px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.food-grid {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>display: grid;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns: repeat(3, 1fr);</p>
+<p class="p1"><span class="Apple-converted-space">      </span>gap: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.food-card {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 2px solid #ffd27f;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transition: transform 0.2s;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.food-card:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>transform: scale(1.05);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.food-card img {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>height: 100px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>object-fit: contain;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.cart-items img {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 80px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 8px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #ff9800;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-size: 16px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #e68900;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>.button-row {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-top: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;h1&gt;🍽️ 茶餐廳點餐遊戲&lt;/h1&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;div class="game-container"&gt;</p>
+<p class="p2"><span class="Apple-converted-space">  </span></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- LEFT: FOOD CHOICES --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="food-area"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;選擇食物&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="food-grid" id="foodGrid"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="button-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="loadNewFoods()"&gt;🔄 新一批食物&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- RIGHT: ORDER CART --&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="cart-area"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;🧾 已點食物&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="cart-items" id="cart"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="button-row"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;button onclick="clearCart()"&gt;🗑️ 清除&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1">const allFoods = [</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{ name: "蛋撻", img: "images/eggtart.png", audio: "audio/eggtart.mp3" },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{ name: "奶茶", img: "images/milktea.png", audio: "audio/milktea.mp3" },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{ name: "菠蘿包", img: "images/pineapplebun.png", audio: "audio/pineapplebun.mp3" },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{ name: "通粉", img: "images/macaroni.png", audio: "audio/macaroni.mp3" },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{ name: "西多士", img: "images/frenchtoast.png", audio: "audio/frenchtoast.mp3" },</p>
+<p class="p1"><span class="Apple-converted-space">  </span>{ name: "麵", img: "images/noodles.png", audio: "audio/noodles.mp3" }</p>
+<p class="p1">];</p>
+<p class="p2"><br></p>
+<p class="p1">const foodGrid = document.getElementById("foodGrid");</p>
+<p class="p1">const cart = document.getElementById("cart");</p>
+<p class="p2"><br></p>
+<p class="p1">function shuffle(array) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>return array.sort(() =&gt; 0.5 - Math.random());</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function loadNewFoods() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>foodGrid.innerHTML = "";</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const selectedFoods = shuffle([...allFoods]).slice(0, 6);</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>selectedFoods.forEach(food =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const card = document.createElement("div");</p>
+<p class="p1"><span class="Apple-converted-space">    </span>card.className = "food-card";</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>card.innerHTML = `</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;img src="${food.img}" alt="${food.name}"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>&lt;p&gt;${food.name}&lt;/p&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>`;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>card.onclick = () =&gt; selectFood(food);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>foodGrid.appendChild(card);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>});</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function selectFood(food) {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>const audio = new Audio(food.audio);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>audio.play();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>const img = document.createElement("img");</p>
+<p class="p1"><span class="Apple-converted-space">  </span>img.src = food.img;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>img.alt = food.name;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>cart.appendChild(img);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">function clearCart() {</p>
+<p class="p1"><span class="Apple-converted-space">  </span>cart.innerHTML = "";</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">// Initial load</p>
+<p class="p1">loadNewFoods();</p>
+<p class="p1">&lt;/script&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
